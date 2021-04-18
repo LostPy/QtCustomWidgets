@@ -1,9 +1,9 @@
-# Project: OsuData
+# Project: QtCustomWidgets
 # Author: LostPy
 
 from setuptools import setup, find_packages
 
-import osuData
+import QtCustomWidgets
 
 __doc__ = """My Custom Widgets for PyQt5"""
 
