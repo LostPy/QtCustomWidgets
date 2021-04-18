@@ -9,7 +9,7 @@ __doc__ = """My Custom Widgets for PyQt5"""
 
 
 setup(
-	name='osuData',
+	name='QtCustomWidgets',
 	version='1.20210418',
 	author='LostPy',
 	description="My Custom Widgets for PyQt5",
