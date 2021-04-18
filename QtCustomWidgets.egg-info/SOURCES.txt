@@ -1,0 +1,11 @@
+README.md
+setup.py
+./QtCustomWidgets/__init__.py
+./QtCustomWidgets/buttons/__init__.py
+./QtCustomWidgets/buttons/toggleButtonAnimated.py
+./QtCustomWidgets/testCustomWidgets/__init__.py
+./QtCustomWidgets/testCustomWidgets/myLineEdit.py
+QtCustomWidgets.egg-info/PKG-INFO
+QtCustomWidgets.egg-info/SOURCES.txt
+QtCustomWidgets.egg-info/dependency_links.txt
+QtCustomWidgets.egg-info/top_level.txt

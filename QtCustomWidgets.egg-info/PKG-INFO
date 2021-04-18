@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: QtCustomWidgets
+Version: 1.20210418
+Summary: My Custom Widgets for PyQt5
+Home-page: UNKNOWN
+Author: LostPy
+Author-email: UNKNOWN
+License: MIT
+Description: My Custom Widgets for PyQt5
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: Functionnal - improvement in progress
+Classifier: License :: MIT
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5+
+Classifier: Topic :: PyQt5

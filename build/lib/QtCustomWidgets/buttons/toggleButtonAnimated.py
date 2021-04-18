@@ -50,8 +50,8 @@ class ToggleButtonAnimated(QCheckBox):
 
         self.pulse_anim = QPropertyAnimation(self, b"pulse_radius", self)
         self.pulse_anim.setDuration(400)  # time in ms
-        self.pulse_anim.setStartValue(0.25 * self.contentsRect.height() + 10)
-        self.pulse_anim.setEndValue(0.25 * self.contentsRect.height() + )
+        self.pulse_anim.setStartValue(10)
+        self.pulse_anim.setEndValue(20)
 
         self.animations_group = QSequentialAnimationGroup()
         self.animations_group.addAnimation(self.animation)
