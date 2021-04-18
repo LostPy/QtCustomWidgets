@@ -1,1 +1,1 @@
-from . import myLineEdit
+from . import *
