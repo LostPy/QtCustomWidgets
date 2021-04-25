@@ -27,3 +27,26 @@ To add custom widgets to QtDesigner (command line for Linux):
  2. Copy the directory `QtCustomWidgets` in `path/of/qt5/plugins/designer/python/`. In this directory, use the command line: `sudo cp -r ./QtCustomWidgets /usr/lib/x86_64-linux-gnu/qt5/plugins/designer/python/`.
  3. Copy the files of `./plugins` directory (in this directory), in `path/of/qt5/plugins/designer/python`. Use the command line: `sudo cp ./plugins/*.py /usr/lib/x86_64-linux-gnu/qt5/plugins/designer/python/`.
  4. Run designer: `designer` or `designer-qt5`
+
+## Widgets List
+
+|Category|Name|Version add|Functional|
+|--------|----|-----------|----------|
+|buttons|ToggleButtonAnimated|1.20210418|✅|
+|dataVisualization|GraphicWidget|1.20210418|✅|
+|progressBar|ProgressBar|1.20210418|✅|
+|progressBar|CircularProgressBar|1.20210425|❌|
+
+
+## Import a Widget
+
+To import a widget, you can use:
+```py
+from QtCustomWidgets import nameOfWidget
+```
+
+By example, to import the Progressbar:
+```py
+from QtCustomWidgets import Progressbar
+```
+

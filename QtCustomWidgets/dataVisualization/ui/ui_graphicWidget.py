@@ -47,9 +47,9 @@ class Ui_GraphicWidget(object):
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
         self.verticalLayout.addLayout(self.horizontalLayout)
-        self.graphicsView = QChartView(GraphicWidget)
-        self.graphicsView.setObjectName("graphicsView")
-        self.verticalLayout.addWidget(self.graphicsView)
+        self.chartView = QChartView(GraphicWidget)
+        self.chartView.setObjectName("chartView")
+        self.verticalLayout.addWidget(self.chartView)
 
         self.retranslateUi(GraphicWidget)
         QtCore.QMetaObject.connectSlotsByName(GraphicWidget)
