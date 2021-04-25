@@ -4,6 +4,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtDesigner import QPyDesignerCustomWidgetPlugin
  
 from QtCustomWidgets.buttons.toggleButtonAnimated import ToggleButtonAnimated
+from groups import GROUPS
  
  
 class ToggleButtonAnimatedPlugin(QPyDesignerCustomWidgetPlugin):
@@ -36,7 +37,7 @@ class ToggleButtonAnimatedPlugin(QPyDesignerCustomWidgetPlugin):
     def group(self):
         """définit le nom du groupe de widgets dans QtDesigner
         """
-        return 'Buttons'
+        return GROUPS['Buttons']
  
     def icon(self):
         """retourne l'icone qui represente le widget dans Designer
@@ -69,16 +70,13 @@ class ToggleButtonAnimatedPlugin(QPyDesignerCustomWidgetPlugin):
                     <property name="whatsThis">
                         <string>{self.whatsThis()}</string>
                     </property>
-                    <property name="styleSheet">
-                        <string>background-color: yellow;</string>
-                    </property>
                 </widget>
                 <customwidgets>
                     <customwidget>
                         <class>{self.name()}</class>
                         <extends>QWidget</extends>
                     </customwidget>
-               </customwidgets>
+                </customwidgets>
             </ui>"""
         )
  

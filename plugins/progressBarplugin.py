@@ -3,16 +3,17 @@
 from PyQt5.QtGui import QIcon
 from PyQt5.QtDesigner import QPyDesignerCustomWidgetPlugin
  
-from QtCustomWidgets.testCustomWidgets.myLineEdit import MyLineEdit
+from QtCustomWidgets.customProgressBar.progressBar import ProgressBar
+from groups import GROUPS
  
  
-class LineEditPlugin(QPyDesignerCustomWidgetPlugin):
+class ProgressBarPlugin(QPyDesignerCustomWidgetPlugin):
     """classe pour renseigner Designer sur le widget
        nom de classe à renommer selon le widget
     """
  
     def __init__(self, parent=None):
-        super(LineEditPlugin, self).__init__(parent)
+        super(ProgressBarPlugin, self).__init__(parent)
         self.initialized = False
  
     def initialize(self, core):
@@ -26,17 +27,17 @@ class LineEditPlugin(QPyDesignerCustomWidgetPlugin):
     def createWidget(self, parent):
         """retourne une instance de la classe qui définit le nouveau widget
         """
-        return MyLineEdit(parent)
+        return ProgressBar(parent=parent)
 
     def name(self):
         """définit le nom du widget dans QtDesigner
         """
-        return 'MyLineEdit'
+        return 'ProgressBar'
  
     def group(self):
         """définit le nom du groupe de widgets dans QtDesigner
         """
-        return 'testCustomWidgets'
+        return GROUPS['Display']
  
     def icon(self):
         """retourne l'icone qui represente le widget dans Designer
@@ -47,12 +48,12 @@ class LineEditPlugin(QPyDesignerCustomWidgetPlugin):
     def toolTip(self):
         """retourne une courte description du widget comme tooltip
         """
-        return "Un QLineEdit avec un fond jaune"
+        return ""
  
     def whatsThis(self):
         """retourne une courte description du widget pour le "What's this?"
         """
-        return "Un QLineEdit avec un fond jaune"
+        return ""
  
     def isContainer(self):
         """dit si le nouveau widget est un conteneur ou pas
@@ -69,9 +70,6 @@ class LineEditPlugin(QPyDesignerCustomWidgetPlugin):
                     <property name="whatsThis">
                         <string>{self.whatsThis()}</string>
                     </property>
-                    <property name="styleSheet">
-                        <string>background-color: yellow;</string>
-                    </property>
                 </widget>
                 <customwidgets>
                     <customwidget>
@@ -85,5 +83,5 @@ class LineEditPlugin(QPyDesignerCustomWidgetPlugin):
     def includeFile(self):
         """retourne le nom du fichier (str sans extension) du widget
         """
-        return 'QtCustomWidgets.testCustomWidgets.myLineEdit'
+        return 'QtCustomWidgets.customProgressBar.progressBar'
  

@@ -10,7 +10,7 @@ __doc__ = """My Custom Widgets for PyQt5"""
 
 setup(
 	name='QtCustomWidgets',
-	version='1.20210418',
+	version='1.20210425',
 	author='LostPy',
 	description="My Custom Widgets for PyQt5",
 	long_description=__doc__,
@@ -24,7 +24,7 @@ setup(
         "License :: MIT",
         "Natural Language :: French",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3.5+",
+        "Programming Language :: Python :: 3.7+",
         "Topic :: PyQt5",
     ],
     license='MIT',
