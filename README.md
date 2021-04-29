@@ -30,12 +30,14 @@ To add custom widgets to QtDesigner (command line for Linux):
 
 ## Widgets List
 
-|Category|Name|Version add|Functional|
-|--------|----|:---------:|:--------:|
-|buttons|ToggleButtonAnimated|1.20210418|✅|
-|dataVisualization|GraphicWidget|1.20210418|✅|
-|progressBar|ProgressBar|1.20210418|✅|
-|progressBar|CircularProgressBar|1.20210425|❌|
+|Category|Name|Version add|Functional|Designer|
+|--------|----|:---------:|:--------:|:------:|
+|Buttons|ToggleButtonAnimated|1.0.20210418|✅|✅|
+|Graphics|GraphicWidget|1.0.20210418|✅|❌|
+|Display|ProgressBar|1.0.20210418|✅|✅|
+|Display|CircularProgressBar|1.0.20210425|❌|❌|
+|Display|PlainTextEditHandler|1.0.20210429|✅|✅|
+|Dialog|dialogLogger|1.0.20210429|✅|❌|
 
 
 ## Import a Widget

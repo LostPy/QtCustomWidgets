@@ -10,7 +10,7 @@ __doc__ = """My Custom Widgets for PyQt5"""
 
 setup(
 	name='QtCustomWidgets',
-	version='1.20210425',
+	version='1.0.20210429',
 	author='LostPy',
 	description="My Custom Widgets for PyQt5",
 	long_description=__doc__,
