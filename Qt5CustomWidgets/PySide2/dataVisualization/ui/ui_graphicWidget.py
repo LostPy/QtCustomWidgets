@@ -47,7 +47,7 @@ class Ui_GraphicWidget(object):
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
         self.verticalLayout.addLayout(self.horizontalLayout)
-        self.chartView = QChartView(GraphicWidget)
+        self.chartView = QtCharts.QChartView(GraphicWidget)
         self.chartView.setObjectName("chartView")
         self.verticalLayout.addWidget(self.chartView)
 
@@ -61,6 +61,6 @@ class Ui_GraphicWidget(object):
         self.label.setText(_translate("GraphicWidget", "Graphic title"))
 
 
-from PySide2.QtChart import QChartView
+from PySide2.QtCharts import QtCharts
 
 
