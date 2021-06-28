@@ -262,7 +262,7 @@ if __name__ == '__main__':
 	class Widget(QWidget):
 		def __init__(self):
 			super().__init__()
-			self.progress = ProgressBar(rounding=30., showPercent=False, showValue=True, parent=self)
+			self.progress = ProgressBar(rounding=0., showPercent=True, showValue=True, parent=self)
 			self.progress.setRange(20, 200)
 			self.slider = QSlider(Qt.Horizontal, self)
 			self.slider.setRange(20, 200)

@@ -6,19 +6,20 @@ My custom widgets created for QtDesigner and PyQt5.
 
  * Author: LostPy
  * Date: 2021-04-18
- * Version: 0.1
+ * Version: 1.0
  
 ## Requirement:
  * Python 3.7+
  * Qt5
  * PyQt5
- * For someone widgets: PyQtGraph
+ * For someone widgets: PyQtChart
 
 ## Installation
 
 To install the last version:
- * On Window or a virtual environment: `pip install git+https://github.com/LostPy/QtCustomWidgets.git@main`
- * On Linux: `pip3 install git+https://github.com/LostPy/QtCustomWidgets.git@main`
+```
+pip install git+https://github.com/LostPy/QtCustomWidgets.git@main
+```
 
 ## Add widgets to QtDesigner
 
@@ -44,11 +45,11 @@ To add custom widgets to QtDesigner (command line for Linux):
 
 To import a widget, you can use:
 ```py
-from QtCustomWidgets import nameOfWidget
+from Qt5CustomWidgets import nameOfWidget
 ```
 
 By example, to import the Progressbar:
 ```py
-from QtCustomWidgets import Progressbar
+from Qt5CustomWidgets import Progressbar
 ```
 

@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout
 
-from .QtHandlers import QtStreamHandler
-from .plainTextEditHandler import PlainTextEditHandler
+from QtHandlers import QtStreamHandler
+from plainTextEditHandler import PlainTextEditHandler
 
 
 class DialogLogger(QDialog):
 	def __init__(self, handler: QtStreamHandler, parent=None):
 		QDialog.__init__(self, parent)
-		self.plainTextEditHandler = PlainTextEditHandler(handler, self)
+		self.plainTextEditHandler = PlainTextEditHandler(self, handler)
 		self.buttons_box = QDialogButtonBox(QDialogButtonBox.Close, self)
 		layout = QVBoxLayout()
 		layout.addWidget(self.plainTextEditHandler)
