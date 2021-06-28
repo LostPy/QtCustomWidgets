@@ -13,7 +13,7 @@ setup(
 	name='Qt5CustomWidgets',
 	version=Qt5CustomWidgets.__version__,
 	author='LostPy',
-	description="My Custom Widgets for PySide2",
+	description="My Custom Widgets for PyQt5",
 	long_description=README,
     package_dir = {'Qt5CustomWidgets': './Qt5CustomWidgets'},
     package_data = {'': ['README.md']},
