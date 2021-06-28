@@ -6,7 +6,7 @@ My custom widgets created for PySide2.
 
  * Author: LostPy
  * Date: 2021-04-18
- * Version: 1.0
+ * Version: 1.1
  
 ## Requirement:
  * Python 3.7+

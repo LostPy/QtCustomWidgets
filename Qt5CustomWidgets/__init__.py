@@ -1,4 +1,13 @@
-__version__ = '1.0'
+__version__ = '1.1'
 
 
-from . import *
+from .PySide2 import (
+		ToggleButtonAnimated,
+		GraphicWidget,
+		QtHandlers,
+		PlainTextEditHandler,
+		DialogLogger,
+		ProgressBar
+	)
+
+from .PySide2 import buttons, dataVisualization, devTools, progressBars
