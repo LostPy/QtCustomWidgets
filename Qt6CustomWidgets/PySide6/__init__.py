@@ -1,4 +1,8 @@
-__version__ = '1.0'
+__version__ = '1.1'
 
 
-from . import *
+from .buttons import ToggleButtonAnimated
+from .dataVisualization import GraphicWidget
+from .devTools import QtHandlers, DialogLogger, PlainTextEditHandler
+from .progressBars import ProgressBar
+
