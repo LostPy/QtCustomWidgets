@@ -10,7 +10,7 @@ from PyQt5.QtCore import pyqtSlot, pyqtSignal, QPoint, Qt, QDateTime,pyqtPropert
 from PyQt5.QtGui import QImage, QPainter
 from PyQt5.QtChart import QChart
 from PyQt5 import QtChart
-from ui.ui_graphicWidget import Ui_GraphicWidget
+from .ui.ui_graphicWidget import Ui_GraphicWidget
 
 
 class GraphicWidget(QWidget, Ui_GraphicWidget):

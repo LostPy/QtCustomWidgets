@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout
 
-from QtHandlers import QtStreamHandler
-from plainTextEditHandler import PlainTextEditHandler
+from .QtHandlers import QtStreamHandler
+from .plainTextEditHandler import PlainTextEditHandler
 
 
 class DialogLogger(QDialog):
