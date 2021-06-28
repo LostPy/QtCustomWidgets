@@ -2,7 +2,7 @@ import logging
 
 from PySide2.QtWidgets import QPlainTextEdit
 
-from QtHandlers import QtStreamHandler
+from .QtHandlers import QtStreamHandler
 
 class PlainTextEditHandler(QPlainTextEdit):
 	def __init__(self, parent=None, handler: QtStreamHandler = None):
