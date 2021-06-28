@@ -10,8 +10,7 @@ from PySide6.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
 from PySide6.QtGui import QImage, QPainter
 from PySide6.QtCharts import QChart
 from PySide6 import QtCharts
-
-from .ui.ui_graphicWidget import Ui_GraphicWidget
+from ui.ui_graphicWidget import Ui_GraphicWidget
 
 
 class GraphicWidget(QWidget, Ui_GraphicWidget):
