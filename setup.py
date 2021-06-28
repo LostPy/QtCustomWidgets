@@ -3,19 +3,19 @@
 
 from setuptools import setup, find_packages
 
-import QtCustomWidgets
+import Qt5CustomWidgets
 
 with open('README.md', 'r', encoding='UTF-8') as f:
     README = f.read()
 
 
 setup(
-	name='QtCustomWidgets',
-	version=QtCustomWidgets.__version__,
+	name='Qt5CustomWidgets',
+	version=Qt5CustomWidgets.__version__,
 	author='LostPy',
-	description="My Custom Widgets for PyQt5",
+	description="My Custom Widgets for PySide2",
 	long_description=README,
-    package_dir = {'QtCustomWidgets': './QtCustomWidgets'},
+    package_dir = {'Qt5CustomWidgets': './Qt5CustomWidgets'},
     package_data = {'': ['README.md']},
 	include_package_data=True,
 	url='',
@@ -26,7 +26,7 @@ setup(
         "Natural Language :: French",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.7+",
-        "Topic :: PyQt5",
+        "Topic :: Qt5 :: PyQt5",
     ],
     license='MIT',
     packages = find_packages()
