@@ -1,6 +1,6 @@
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import pyqtProperty, pyqtSlot, QRect
-from PyQt5.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
+from PySide2.QtWidgets import QWidget
+from PySide2.QtCore import Property, Slot, QRect
+from PySide2.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
 
 
 class CircularProgress(QWidget):
@@ -48,8 +48,8 @@ class CircularProgress(QWidget):
 
 if __name__ == "__main__":
 	import sys
-	from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider
-	from PyQt5.QtCore import Qt
+	from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider
+	from PySide2.QtCore import Qt
 
 	class Window(QWidget):
 		def __init__(self):

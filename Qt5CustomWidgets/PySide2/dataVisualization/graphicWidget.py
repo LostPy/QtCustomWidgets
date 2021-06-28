@@ -5,11 +5,11 @@ Ui pour le système de surveillance du radar UHF
 from datetime import datetime
 from numpy import nan
 
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import pyqtSlot, pyqtSignal, QPoint, Qt, QDateTime,pyqtProperty
-from PyQt5.QtGui import QImage, QPainter
-from PyQt5.QtChart import QChart
-from PyQt5 import QtChart
+from PySide2.QtWidgets import QWidget
+from PySide2.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
+from PySide2.QtGui import QImage, QPainter
+from PySide2.QtChart import QChart
+from PySide2 import QtChart
 from ui.ui_graphicWidget import Ui_GraphicWidget
 
 
@@ -91,7 +91,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			retracted : bool
 				A boolean to specify if the graphicWidget is retracted or not.
 	"""
-	retracted = pyqtSignal(bool)
+	retracted = Signal(bool)
 
 	def __init__(self, parent=None, title: str = "Untitled"):
 		"""Initialize an instance of GraphicWidget
@@ -122,7 +122,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		"""
 		return self.chartView.isHidden()
 
-	@pyqtProperty(str)
+	@Property(str)
 	def title(self):
 		"""The title of graph
 		
@@ -651,7 +651,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		im.save(path)
 		return path
 
-	@pyqtSlot()
+	@Slot()
 	def on_toolButton_clicked(self):
 		"""Slot called when the signal 'clicked' of toolbutton is emited."""
 		if self.chartView.isHidden():
@@ -670,7 +670,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 if __name__ == "__main__":
 	import sys
-	from PyQt5.QtWidgets import QApplication
+	from PySide2.QtWidgets import QApplication
 
 	app = QApplication(sys.argv)
 	line_graph = GraphicWidget()
@@ -702,7 +702,7 @@ if __name__ == "__main__":
 	# line
 	line_graph.set_title("Line chart example")
 	import numpy as np
-	from PyQt5.QtCore import QDateTime, QDate, QTime
+	from PySide2.QtCore import QDateTime, QDate, QTime
 	x = np.array([QDateTime(QDate(2021, j, i), QTime(12, 0)).toMSecsSinceEpoch() for j in range(3, 6) for i in range(1, 31)])
 	line_graph.add_line_series('series 1', x=x, y=[i**2 + 100 for i in range(90)], datetime_axis=True)
 	

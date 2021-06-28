@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QPlainTextEdit
+from PySide2.QtWidgets import QPlainTextEdit
 import logging
 
 

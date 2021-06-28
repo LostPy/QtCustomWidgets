@@ -3,13 +3,13 @@ A Toggle Button animated. This code was created by learnpyqt
 Source: learnpyqt - https://www.learnpyqt.com/
 """
 
-from PyQt5.QtCore import (
+from PySide2.QtCore import (
     Qt, QSize, QPoint, QPointF, QRectF,
     QEasingCurve, QPropertyAnimation, QSequentialAnimationGroup,
-    pyqtSlot, pyqtProperty)
+    Slot, Property)
 
-from PyQt5.QtWidgets import QCheckBox
-from PyQt5.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
+from PySide2.QtWidgets import QCheckBox
+from PySide2.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
 
 
 class ToggleButtonAnimated(QCheckBox):
@@ -66,7 +66,7 @@ class ToggleButtonAnimated(QCheckBox):
     def hitButton(self, pos: QPoint):
         return self.contentsRect().contains(pos)
 
-    @pyqtSlot(int)
+    @Slot(int)
     def setup_animation(self, value):
         self.animations_group.stop()
         if value:
@@ -130,7 +130,7 @@ class ToggleButtonAnimated(QCheckBox):
 
         painter.end()
 
-    @pyqtProperty(float)
+    @Property(float)
     def handlePosition(self):
         return self._handle_position
 
@@ -144,7 +144,7 @@ class ToggleButtonAnimated(QCheckBox):
         self.update()
         self._handle_position = pos
 
-    @pyqtProperty(float)
+    @Property(float)
     def pulseRadius(self):
         return self._pulse_radius
 
@@ -153,7 +153,7 @@ class ToggleButtonAnimated(QCheckBox):
         self.update()
         self._pulse_radius = pos
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def barColor(self):
         return self._bar_color
 
@@ -161,7 +161,7 @@ class ToggleButtonAnimated(QCheckBox):
     def barColor(self, color: QColor):
         self._bar_color = QColor(color)
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def barCheckedColor(self):
         return self._bar_checked_color
 
@@ -169,7 +169,7 @@ class ToggleButtonAnimated(QCheckBox):
     def barCheckedColor(self, color: QColor):
         self._bar_checked_color = QColor(color)
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def handleColor(self):
         return self._handle_color
 
@@ -177,7 +177,7 @@ class ToggleButtonAnimated(QCheckBox):
     def handleColor(self, color: QColor):
         self._handle_color = QColor(color)
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def handleCheckedColor(self):
         return self._handle_checked_color
 
@@ -185,7 +185,7 @@ class ToggleButtonAnimated(QCheckBox):
     def handleCheckedColor(self, color: QColor):
         self._handle_checked_color = QColor(color)
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def pulseUncheckedColor(self):
         return self._pulse_unchecked_color
 
@@ -193,7 +193,7 @@ class ToggleButtonAnimated(QCheckBox):
     def pulseUncheckedColor(self, color: QColor):
         self._pulse_unchecked_color = QColor(color)
 
-    @pyqtProperty(QColor)
+    @Property(QColor)
     def pulseCheckedColor(self):
         return self._pulse_checked_color
 
@@ -201,7 +201,7 @@ class ToggleButtonAnimated(QCheckBox):
     def pulseCheckedColor(self, color: QColor):
         self._pulse_checked_color = QColor(color)
 
-    @pyqtProperty(bool)
+    @Property(bool)
     def animated(self):
         return self._animated
 
@@ -217,8 +217,8 @@ class ToggleButtonAnimated(QCheckBox):
 if __name__ == '__main__':
     import sys
     import time
-    from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
-    from PyQt5.QtCore import Qt
+    from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
+    from PySide2.QtCore import Qt
 
     class Widget(QWidget):
         def __init__(self):

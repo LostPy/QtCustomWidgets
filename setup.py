@@ -26,7 +26,7 @@ setup(
         "Natural Language :: French",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.7+",
-        "Topic :: Qt5 :: PyQt5",
+        "Topic :: Qt5 :: PySide2",
     ],
     license='MIT',
     packages = find_packages()

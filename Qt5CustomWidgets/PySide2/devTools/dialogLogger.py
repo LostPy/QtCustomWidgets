@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout
+from PySide2.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout
 
 from QtHandlers import QtStreamHandler
 from plainTextEditHandler import PlainTextEditHandler
@@ -25,7 +25,7 @@ class DialogLogger(QDialog):
 
 if __name__ == "__main__":
 	import sys
-	from PyQt5.QtWidgets import QApplication
+	from PySide2.QtWidgets import QApplication
 	app = QApplication(sys.argv)
 	handler = QtStreamHandler()
 	w = DialogLogger(handler)
