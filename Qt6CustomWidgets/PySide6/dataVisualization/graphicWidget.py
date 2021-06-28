@@ -5,11 +5,11 @@ Ui pour le système de surveillance du radar UHF
 from datetime import datetime
 from numpy import nan
 
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import pyqtSlot, pyqtSignal, QPoint, Qt, QDateTime,pyqtProperty
-from PyQt5.QtGui import QImage, QPainter
-from PyQt5.QtChart import QChart
-from PyQt5 import QtChart
+from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
+from PySide6.QtGui import QImage, QPainter
+from PySide6.QtCharts import QChart
+from PySide6 import QtCharts
 from ui.ui_graphicWidget import Ui_GraphicWidget
 
 
@@ -91,7 +91,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			retracted : bool
 				A boolean to specify if the graphicWidget is retracted or not.
 	"""
-	retracted = pyqtSignal(bool)
+	retracted = Signal(bool)
 
 	def __init__(self, parent=None, title: str = "Untitled"):
 		"""Initialize an instance of GraphicWidget
@@ -100,7 +100,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		---------
 		parent : QWidget
 			The parent widget of the instance of GraphicWidget
-		OPTIONNAL[title] : str
+		OPTIONAL[title] : str
 			The title of graph
 			Default: "Untitled"
 		"""
@@ -122,7 +122,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		"""
 		return self.chartView.isHidden()
 
-	@pyqtProperty(str)
+	@Property(str)
 	def title(self):
 		"""The title of graph
 		
@@ -149,7 +149,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 		Parameters
 		---------
-		OPTIONNAL[chart] : Union[QChart, None]
+		OPTIONAL[chart] : Union[QChart, None]
 			the chart to set, if None: set an empty chart
 
 		Returns
@@ -211,19 +211,19 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 		Parameters
 		---------
-		OPTIONNAL[x_range] : Tuple[Union[int, float], Union[int, float]]
+		OPTIONAL[x_range] : Tuple[Union[int, float], Union[int, float]]
 			The x range : the first value must be the minimum value of x axis and the second the maximum value of x axis.
 			Default: (0, 0)
-		OPTIONNAL[x_axis_align] : int, a Qt alignment flag
+		OPTIONAL[x_axis_align] : int, a Qt alignment flag
 			The alignment flag to x axis.
 			Default: Qt.AlignBottom
-		OPTIONNAL[labels_angle] : int
+		OPTIONAL[labels_angle] : int
 			Angle for the labels
 			Default: 0
-		OPTIONNAL[datetime_axis] : bool
+		OPTIONAL[datetime_axis] : bool
 			If True, the x axis is a QDatetimeAxis, it's not necessary to specify a x range.
 			Default: False
-		OPTIONNAL[datetime_fmt] : str
+		OPTIONAL[datetime_fmt] : str
 			The datetime format, only use if datetime_axis is True.
 			Default: "yyyy-MM-dd h:mm"
 
@@ -234,12 +234,12 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		"""
 
 		if datetime_axis:
-			x_axis = QtChart.QDateTimeAxis()
+			x_axis = QtCharts.QDateTimeAxis()
 			x_axis.setFormat(datetime_fmt)
 			if isinstance(x_range[0], QDateTime) and isinstance(x_range[1], QDateTime):
 				x_axis.setRange(x_range[0], x_range[1])
 		else:
-			x_axis = QtChart.QValueAxis()
+			x_axis = QtCharts.QValueAxis()
 			x_axis.setRange(x_range[0], x_range[1])
 		x_axis.setLabelsAngle(labels_angle)
 
@@ -252,19 +252,19 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 		Parameters
 		---------
-		OPTIONNAL[y_range] : Tuple[Union[int, float, QDateTime], Union[int, float, QDateTime]]
+		OPTIONAL[y_range] : Tuple[Union[int, float, QDateTime], Union[int, float, QDateTime]]
 			The y range : the first value must be the minimum value of y axis and the second the maximum value of y axis.
 			Default: (0, 0)
-		OPTIONNAL[y_axis_align] : int, a Qt alignment flag
+		OPTIONAL[y_axis_align] : int, a Qt alignment flag
 			The alignment flag to y axis.
 			Default: Qt.AlignLeft
-		OPTIONNAL[labels_angle] : int
+		OPTIONAL[labels_angle] : int
 			Angle for the labels
 			Default: 0
-		OPTIONNAL[datetime_axis] : bool
+		OPTIONAL[datetime_axis] : bool
 			If True, the x axis is a QDatetimeAxis, it's not necessary to specify a x range.
 			Default: False
-		OPTIONNAL[datetime_fmt] : str
+		OPTIONAL[datetime_fmt] : str
 			The datetime format, only use if datetime_axis is True.
 			Default: "yyyy-MM-dd h:mm"
 
@@ -274,12 +274,12 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			The y axis created
 		"""
 		if datetime_axis:
-			y_axis = QtChart.QDateTimeAxis()
+			y_axis = QtCharts.QDateTimeAxis()
 			y_axis.setFormat(datetime_fmt)
 			if isinstance(y_range[0], QDateTime) and isinstance(y_range[1], QDateTime):
 				y_axis.setRange(y_range[0], y_range[1])
 		else:
-			y_axis = QtChart.QValueAxis()
+			y_axis = QtCharts.QValueAxis()
 			y_axis.setRange(y_range[0], y_range[1])
 		y_axis.setLabelsAngle(labels_angle)
 
@@ -291,11 +291,11 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 		Parameters
 		---------
-		axis : QtChart.QAbstractAxis
+		axis : QtCharts.QAbstractAxis
 			The axis to compare
 		range_ : Tuple[Union[int, float], Union[int, float]]
 			The range to compare with the range of axis
-		OPTIONNAL[tolerance] : float, greater than 0
+		OPTIONAL[tolerance] : float, greater than 0
 			The tolerance to use
 			Default: 0.2
 
@@ -325,7 +325,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		---------
 		range_1 : Tuple[Union[int, float], Union[int, float]]
 			A range which must be included in the larger range.
-		OPTIONNAL[*other_ranges] : Tuple[Union[int, float], Union[int, float]]
+		OPTIONAL[*other_ranges] : Tuple[Union[int, float], Union[int, float]]
 			The other ranges
 
 		Returns
@@ -350,13 +350,13 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			Data for X axis
 		y : Iterable
 			Data for Y axis
-		OPTIONNAL[datetime_axis] : bool
+		OPTIONAL[datetime_axis] : bool
 			If True, the X axis is a QDatetimeAxis else a QValueAxis
 			Default: False
-		OPTIONNAL[datetime_fmt] : str
+		OPTIONAL[datetime_fmt] : str
 			If datetime_axis is True, specify the datetime format.
 			Default: "yyyy-MM-dd h:mm"
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -439,13 +439,13 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			The bar series to setup the bar sets and axis.
 		sets : Dict[label, values], format: {"label for the set": [3, 2, 1,...]}
 			The sets to display in this bar series
-		OPTIONNAL[xlabels] : List[str]
+		OPTIONAL[xlabels] : List[str]
 			The labels to use for X axis.
 			Default: range(size_of_sets_values)
-		OPTIONNAL[percent] : bool
+		OPTIONAL[percent] : bool
 			Specify if the bar series is a percent bar series.
 			Default: False 
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -459,7 +459,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 		# Create bar set
 		for label, values in sets.items():
-			bar_set = QtChart.QBarSet(label)
+			bar_set = QtCharts.QBarSet(label)
 			bar_set.append(values)
 			bar_series.append(bar_set)
 			if min_value is None or min_value > min(values):
@@ -468,7 +468,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 				max_value = max(values)
 
 		# X axis
-		x_axis = QtChart.QBarCategoryAxis()
+		x_axis = QtCharts.QBarCategoryAxis()
 		if xlabels is not None:
 			x_axis.append(xlabels)
 		else:
@@ -499,13 +499,13 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			Data for X axis
 		y : Iterable
 			Data for Y axis
-		OPTIONNAL[datetime_axis] : bool
+		OPTIONAL[datetime_axis] : bool
 			If True, the X axis is a QDatetimeAxis else a QValueAxis
 			Default: False
-		OPTIONNAL[datetime_fmt] : str
+		OPTIONAL[datetime_fmt] : str
 			If datetime_axis is True, specify the datetime format.
 			Default: "yyyy-MM-dd h:mm"
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -513,7 +513,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		-------
 		None
 		"""
-		line_series = QtChart.QLineSeries(name=serie_name)
+		line_series = QtCharts.QLineSeries(name=serie_name)
 		self._add_points_data(line_series, x, y)
 		self.add_series(line_series)
 		self._setup_axis(line_series, x, y, datetime_axis=datetime_axis, datetime_fmt=datetime_fmt, legend=legend)
@@ -528,10 +528,10 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			The series name.
 		sets : Dict[label, values], format: {"label for the set": [3, 2, 1,...]}
 			The sets to display in this bar series
-		OPTIONNAL[xlabels] : List[str]
+		OPTIONAL[xlabels] : List[str]
 			The labels to use for X axis.
 			Default: range(size_of_sets_values)
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -539,7 +539,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		-------
 		None
 		"""
-		bar_series = QtChart.QBarSeries(name=serie_name)
+		bar_series = QtCharts.QBarSeries(name=serie_name)
 		self.add_series(bar_series)
 		self._setup_bar_series(bar_series, sets, xlabels, percent=True, legend=legend)
 
@@ -554,7 +554,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			The sets to display in this bar series
 		categories : List[str]
 			The labels to use for X axis.
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -562,7 +562,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		-------
 		None
 		"""
-		bar_series = QtChart.QPercentBarSeries(name=serie_name)
+		bar_series = QtCharts.QPercentBarSeries(name=serie_name)
 		self.add_series(bar_series)
 		self._setup_bar_series(bar_series, data, categories, legend)
 
@@ -575,7 +575,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			The series name.
 		data : Dict[label, value], format: {"label1": 3, "label2": 6}
 			Data for pie series
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -583,13 +583,13 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		-------
 		None
 		"""
-		pie_series = QtChart.QPieSeries(name=serie_name)
+		pie_series = QtCharts.QPieSeries(name=serie_name)
 		for label, value in data.items():
 			pie_series.append(label, value)
 		self.add_series(pie_series)
 		self.chart.legend().setVisible(legend)
 
-	def add_scatter_series(self, serie_name: str, x: list = [], y: list = [], marker=QtChart.QScatterSeries.MarkerShapeCircle,
+	def add_scatter_series(self, serie_name: str, x: list = [], y: list = [], marker=QtCharts.QScatterSeries.MarkerShapeCircle,
 		datetime_axis: bool = False, datetime_fmt: str = "yyyy-MM-dd h:mm", size: float = 10., legend: bool = True):
 		"""Add a scatter series to  the chart with x and y data.
 
@@ -601,19 +601,19 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 			Data for X axis
 		y : Iterable
 			Data for Y axis
-		OPTIONNAL[marker] : QScatterSeries.MarkerShape
+		OPTIONAL[marker] : QScatterSeries.MarkerShape
 			The shape of markers to use
 			Default: QScatterSeries.MarkerShapeCircle
-		OPTIONNAL[datetime_axis] : bool
+		OPTIONAL[datetime_axis] : bool
 			If True, the X axis is a QDatetimeAxis else a QValueAxis
 			Default: False
-		OPTIONNAL[datetime_fmt] : str
+		OPTIONAL[datetime_fmt] : str
 			If datetime_axis is True, specify the datetime format.
 			Default: "yyyy-MM-dd h:mm"
-		OPTIONNAL[size] : float
+		OPTIONAL[size] : float
 			The size of markers
 			Default: 10.
-		OPTIONNAL[legend] : bool
+		OPTIONAL[legend] : bool
 			Specify if the legend must be visible.
 			Default: True
 
@@ -621,7 +621,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		-------
 		None
 		"""
-		scatter_series = QtChart.QScatterSeries(name=serie_name)
+		scatter_series = QtCharts.QScatterSeries(name=serie_name)
 		scatter_series.setMarkerSize(size)
 		scatter_series.setMarkerShape(marker)
 		self._add_points_data(scatter_series, x, y)
@@ -651,7 +651,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		im.save(path)
 		return path
 
-	@pyqtSlot()
+	@Slot()
 	def on_toolButton_clicked(self):
 		"""Slot called when the signal 'clicked' of toolbutton is emited."""
 		if self.chartView.isHidden():
@@ -670,7 +670,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 if __name__ == "__main__":
 	import sys
-	from PyQt5.QtWidgets import QApplication
+	from PySide6.QtWidgets import QApplication
 
 	app = QApplication(sys.argv)
 	line_graph = GraphicWidget()
@@ -702,7 +702,7 @@ if __name__ == "__main__":
 	# line
 	line_graph.set_title("Line chart example")
 	import numpy as np
-	from PyQt5.QtCore import QDateTime, QDate, QTime
+	from PySide6.QtCore import QDateTime, QDate, QTime
 	x = np.array([QDateTime(QDate(2021, j, i), QTime(12, 0)).toMSecsSinceEpoch() for j in range(3, 6) for i in range(1, 31)])
 	line_graph.add_line_series('series 1', x=x, y=[i**2 + 100 for i in range(90)], datetime_axis=True)
 	
@@ -712,6 +712,6 @@ if __name__ == "__main__":
 	barPercent_graph.show()
 	pie_graph.show()
 
-	rc = app.exec_()
+	rc = app.exec()
 	sys.exit(rc)
 

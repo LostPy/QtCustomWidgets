@@ -1,6 +1,6 @@
 import logging
 
-from PyQt5.QtWidgets import QPlainTextEdit
+from PySide6.QtWidgets import QPlainTextEdit
 
 from QtHandlers import QtStreamHandler
 

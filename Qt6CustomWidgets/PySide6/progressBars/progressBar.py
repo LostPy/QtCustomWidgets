@@ -3,17 +3,17 @@ A custom progress bar with a custom color.
 """
 
 from math import sqrt
-from PyQt5.QtWidgets import QWidget
-from PyQt5.QtCore import (
+from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import (
 	Qt, QSize, QPoint, QPointF, QRectF,
 	QEasingCurve, QPropertyAnimation, QSequentialAnimationGroup,
-	pyqtSignal, pyqtSlot, pyqtProperty)
-from PyQt5.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
+	Signal, Slot, Property)
+from PySide6.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
 
 
 class ProgressBar(QWidget):
 
-	valueChanged = pyqtSignal(int)
+	valueChanged = Signal(int)
 
 	def __init__(self, orientation=Qt.Horizontal, minimum: int = 0, maximum: int = 100, borderwidth: int = 3,
 		bar_color="#ffffff", color_loaded="#0ca678", pen_color="#212529", text_color='#000000',
@@ -34,7 +34,7 @@ class ProgressBar(QWidget):
 		self._showPercent = showPercent
 		self._showValue = showValue
 
-	@pyqtProperty(int)
+	@Property(int)
 	def minimum(self):
 		return self._minimum
 
@@ -44,7 +44,7 @@ class ProgressBar(QWidget):
 			self._minimum = value
 			self.value = self._value
 
-	@pyqtProperty(int)
+	@Property(int)
 	def maximum(self):
 		return self._maximum
 
@@ -54,7 +54,7 @@ class ProgressBar(QWidget):
 			self._maximum = value
 			self.value = self._value
 
-	@pyqtProperty(int)
+	@Property(int)
 	def value(self):
 		return self._value
 
@@ -69,7 +69,7 @@ class ProgressBar(QWidget):
 		self.valueChanged.emit(self._value)
 		self.update()
 
-	@pyqtProperty(float)
+	@Property(float)
 	def percent(self):
 		return ((self.value - self.minimum) / abs(self.maximum - self.minimum))*100
 
@@ -77,7 +77,7 @@ class ProgressBar(QWidget):
 	def percent(self, value: float):
 		self.value = ((value - self.minimum) * abs(self.maximum - self.minimum)) / 100
 
-	@pyqtProperty(QColor)
+	@Property(QColor)
 	def penColor(self):
 		return self._penColor
 
@@ -85,7 +85,7 @@ class ProgressBar(QWidget):
 	def penColor(self, color: QColor):
 		self._penColor = QColor(color)
 
-	@pyqtProperty(QColor)
+	@Property(QColor)
 	def barColor(self):
 		return self._barColor
 
@@ -93,7 +93,7 @@ class ProgressBar(QWidget):
 	def barColor(self, color: QColor):
 		self._barColor = QColor(color)
 
-	@pyqtProperty(QColor)
+	@Property(QColor)
 	def loadedColor(self):
 		return self._loadedColor
 
@@ -101,7 +101,7 @@ class ProgressBar(QWidget):
 	def loadedColor(self, color: QColor):
 		self._loadedColor = QColor(color)
 
-	@pyqtProperty(QColor)
+	@Property(QColor)
 	def textColor(self):
 		return self._textColor
 
@@ -109,7 +109,7 @@ class ProgressBar(QWidget):
 	def textColor(self, color: QColor):
 		self._textColor = QColor(color)
 
-	@pyqtProperty(int)
+	@Property(int)
 	def borderWidth(self):
 		return self._borderWidth
 
@@ -117,7 +117,7 @@ class ProgressBar(QWidget):
 	def borderWidth(self, value: int):
 		self._borderWidth = value
 
-	@pyqtProperty(float)
+	@Property(float)
 	def roundingCorner(self):
 		return self._rounding
 
@@ -125,7 +125,7 @@ class ProgressBar(QWidget):
 	def roundingCorner(self, value: float):
 		self._rounding = value
 
-	@pyqtProperty(bool)
+	@Property(bool)
 	def showPercent(self):
 		return self._showPercent
 
@@ -134,7 +134,7 @@ class ProgressBar(QWidget):
 		self.update()
 		self._showPercent = show
 
-	@pyqtProperty(bool)
+	@Property(bool)
 	def showValue(self):
 		return self._showValue
 
@@ -154,23 +154,23 @@ class ProgressBar(QWidget):
 			self.minimum = mini
 			self.maximum = maxi
 
-	@pyqtSlot(int)
+	@Slot(int)
 	def setValue(self, value: int):
 		self.value = value
 
-	@pyqtSlot(int)
+	@Slot(int)
 	def increaseValue(self, value: int):
 		self.value += value
 
-	@pyqtSlot(int)
+	@Slot(int)
 	def discreaseValue(self, value: int):
 		self.value -= value
 
-	@pyqtSlot(bool)
+	@Slot(bool)
 	def setShowPercent(self, show_percent: bool):
 		self.showPercent = show_percent
 
-	@pyqtSlot(bool)
+	@Slot(bool)
 	def setShowValue(self, show_value: bool):
 		self.showValue = show_value
 
@@ -256,8 +256,8 @@ class ProgressBar(QWidget):
 if __name__ == '__main__':
 	import sys
 	import time
-	from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
-	from PyQt5.QtCore import Qt
+	from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
+	from PySide6.QtCore import Qt
 
 	class Widget(QWidget):
 		def __init__(self):
@@ -287,5 +287,5 @@ if __name__ == '__main__':
 	w = Widget()
 	w.setGeometry(100, 100, 100, 20)
 	w.show()
-	sys.exit(app.exec_())
+	sys.exit(app.exec())
 
