@@ -3,7 +3,6 @@ Ui pour le système de surveillance du radar UHF
 """
 
 from datetime import datetime
-from numpy import nan
 
 from PySide2.QtWidgets import QWidget
 from PySide2.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
