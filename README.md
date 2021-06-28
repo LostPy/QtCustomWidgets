@@ -1,6 +1,6 @@
 # QtCustomWidgets
 
-My custom widgets created for PySide2.
+My custom widgets created for PySide6.
 
 ## Global Informations
 
@@ -10,36 +10,36 @@ My custom widgets created for PySide2.
  
 ## Requirement:
  * Python 3.7+
- * Qt5
- * PySide2
+ * Qt6
+ * PySide6
 
 ## Installation
 
 To install the last version:
 ```
-pip install git+https://github.com/LostPy/QtCustomWidgets.git@PySide2
+pip install git+https://github.com/LostPy/QtCustomWidgets.git@PySide6
 ```
 
 ## Widgets List
 
-|Category|Name|Version add|Functional|
-|--------|----|:---------:|:--------:|
-|Buttons|ToggleButtonAnimated|1.0.20210418|✅|
-|Graphics|GraphicWidget|1.0.20210418|✅|
-|Display|ProgressBar|1.0.20210418|✅|
-|Display|CircularProgressBar|1.0.20210425|❌|
-|Display|PlainTextEditHandler|1.0.20210429|✅|
-|Dialog|dialogLogger|1.0.20210429|✅|
+|Category|Name|Version add|Functional|QtDesigner|
+|--------|----|:---------:|:--------:|:--------:|
+|Buttons|ToggleButtonAnimated|1.0.20210418|✅|✅|
+|Graphics|GraphicWidget|1.0.20210418|✅|❌|
+|Display|ProgressBar|1.0.20210418|✅|✅|
+|Display|CircularProgressBar|1.0.20210425|❌|❌|
+|Display|PlainTextEditHandler|1.0.20210429|✅|❌|
+|Dialog|dialogLogger|1.0.20210429|✅|❌|
 
 
 ## Import a Widget
 
 To import a widget, you can use:
 ```py
-from Qt5CustomWidgets import nameOfWidget
+from Qt6CustomWidgets import nameOfWidget
 ```
 
 By example, to import the Progressbar:
 ```py
-from Qt5CustomWidgets import Progressbar
+from Qt6CustomWidgets import Progressbar
 ```

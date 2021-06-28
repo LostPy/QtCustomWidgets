@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QPlainTextEdit
+from PySide6.QtWidgets import QPlainTextEdit
 import logging
 
 

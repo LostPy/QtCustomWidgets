@@ -5,10 +5,11 @@ Ui pour le système de surveillance du radar UHF
 from datetime import datetime
 from numpy import nan
 
-from PySide2.QtWidgets import QWidget
-from PySide2.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
-from PySide2.QtGui import QImage, QPainter
-from PySide2.QtCharts import QtCharts
+from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import Slot, Signal, QPoint, Qt, QDateTime,Property
+from PySide6.QtGui import QImage, QPainter
+from PySide6.QtCharts import QChart
+from PySide6 import QtCharts
 from ui.ui_graphicWidget import Ui_GraphicWidget
 
 
@@ -20,7 +21,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 	---------
 	chartView : QChartView
 		The QChartView use to display the chart.
-	chart : QtCharts.QChart
+	chart : QChart
 		The chart with the differents series to display
 	theme : ChartTheme
 		The theme use for this chart
@@ -105,7 +106,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		"""
 		super(GraphicWidget, self).__init__(parent)
 		self.setupUi(self)
-		self.theme = QtCharts.QChart.ChartThemeLight
+		self.theme = QChart.ChartThemeLight
 		self.set_chart()
 		self.label.setText(title)
 		self._old_height = self.height()
@@ -143,12 +144,12 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		"""
 		self.label.setText(new_title)
 
-	def set_chart(self, chart: QtCharts.QChart = None):
+	def set_chart(self, chart: QChart = None):
 		"""Set a char to QChartView
 
 		Parameters
 		---------
-		OPTIONAL[chart] : Union[QtCharts.QChart, None]
+		OPTIONAL[chart] : Union[QChart, None]
 			the chart to set, if None: set an empty chart
 
 		Returns
@@ -156,7 +157,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 		None
 		"""
 		if chart is None:
-			chart = QtCharts.QChart()
+			chart = QChart()
 		self.chart = chart
 		self.chart.setTheme(self.theme)
 		self.chartView.setChart(self.chart)
@@ -669,7 +670,7 @@ class GraphicWidget(QWidget, Ui_GraphicWidget):
 
 if __name__ == "__main__":
 	import sys
-	from PySide2.QtWidgets import QApplication
+	from PySide6.QtWidgets import QApplication
 
 	app = QApplication(sys.argv)
 	line_graph = GraphicWidget()
@@ -701,7 +702,7 @@ if __name__ == "__main__":
 	# line
 	line_graph.set_title("Line chart example")
 	import numpy as np
-	from PySide2.QtCore import QDateTime, QDate, QTime
+	from PySide6.QtCore import QDateTime, QDate, QTime
 	x = np.array([QDateTime(QDate(2021, j, i), QTime(12, 0)).toMSecsSinceEpoch() for j in range(3, 6) for i in range(1, 31)])
 	line_graph.add_line_series('series 1', x=x, y=[i**2 + 100 for i in range(90)], datetime_axis=True)
 	
@@ -711,6 +712,6 @@ if __name__ == "__main__":
 	barPercent_graph.show()
 	pie_graph.show()
 
-	rc = app.exec_()
+	rc = app.exec()
 	sys.exit(rc)
 

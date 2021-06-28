@@ -3,13 +3,13 @@ A Toggle Button animated. This code was created by learnpyqt
 Source: learnpyqt - https://www.learnpyqt.com/
 """
 
-from PySide2.QtCore import (
+from PySide6.QtCore import (
     Qt, QSize, QPoint, QPointF, QRectF,
     QEasingCurve, QPropertyAnimation, QSequentialAnimationGroup,
     Slot, Property)
 
-from PySide2.QtWidgets import QCheckBox
-from PySide2.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
+from PySide6.QtWidgets import QCheckBox
+from PySide6.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
 
 
 class ToggleButtonAnimated(QCheckBox):
@@ -217,8 +217,8 @@ class ToggleButtonAnimated(QCheckBox):
 if __name__ == '__main__':
     import sys
     import time
-    from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
-    from PySide2.QtCore import Qt
+    from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
+    from PySide6.QtCore import Qt
 
     class Widget(QWidget):
         def __init__(self):
@@ -233,4 +233,4 @@ if __name__ == '__main__':
     w = Widget()
     w.setGeometry(100, 100, 600, 400)
     w.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

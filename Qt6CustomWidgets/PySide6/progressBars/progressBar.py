@@ -3,12 +3,12 @@ A custom progress bar with a custom color.
 """
 
 from math import sqrt
-from PySide2.QtWidgets import QWidget
-from PySide2.QtCore import (
+from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import (
 	Qt, QSize, QPoint, QPointF, QRectF,
 	QEasingCurve, QPropertyAnimation, QSequentialAnimationGroup,
 	Signal, Slot, Property)
-from PySide2.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
+from PySide6.QtGui import QColor, QBrush, QPaintEvent, QPen, QPainter
 
 
 class ProgressBar(QWidget):
@@ -256,8 +256,8 @@ class ProgressBar(QWidget):
 if __name__ == '__main__':
 	import sys
 	import time
-	from PySide2.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
-	from PySide2.QtCore import Qt
+	from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QSlider, QPushButton
+	from PySide6.QtCore import Qt
 
 	class Widget(QWidget):
 		def __init__(self):
@@ -287,5 +287,5 @@ if __name__ == '__main__':
 	w = Widget()
 	w.setGeometry(100, 100, 100, 20)
 	w.show()
-	sys.exit(app.exec_())
+	sys.exit(app.exec())
 
