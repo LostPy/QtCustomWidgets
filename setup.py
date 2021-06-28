@@ -13,7 +13,7 @@ setup(
 	name='Qt5CustomWidgets',
 	version=Qt5CustomWidgets.__version__,
 	author='LostPy',
-	description="My Custom Widgets for PyQt5",
+	description="My Custom Widgets for PyQt5 and PySide2",
 	long_description=README,
     package_dir = {'Qt5CustomWidgets': './Qt5CustomWidgets'},
     package_data = {'': ['README.md']},
@@ -26,7 +26,7 @@ setup(
         "Natural Language :: French",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.7+",
-        "Topic :: Qt5 :: PyQt5",
+        "Topic :: Qt5 :: PyQt5 :: PySide2",
     ],
     license='MIT',
     packages = find_packages()
