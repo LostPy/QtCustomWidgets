@@ -1,3 +1,6 @@
+
+> ⚠️ This repository has been moved to [GitLab](https://gitlab.com/LostPy/qtcustomwidgets/-/tree/main)
+
 # QtCustomWidgets
 
 My custom widgets created for PySide6.
